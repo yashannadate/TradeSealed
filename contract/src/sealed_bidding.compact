@@ -1,0 +1,29 @@
+pragma language_version >= 0.22.0;
+
+import CompactStandardLibrary;
+
+export ledger tender_authority: Bytes<32>;
+export ledger minimum_qualification_score: Uint<64>;
+export ledger bids_count: Counter;
+export ledger is_active: Boolean;
+
+witness vendor_qualification_score(): Uint<64>;
+witness bid_price(): Uint<64>;
+
+constructor(authority: Bytes<32>, min_score: Uint<64>) {
+    tender_authority = disclose(authority);
+    minimum_qualification_score = disclose(min_score);
+    is_active = true;
+}
+
+export circuit submit_bid(): [] {
+    assert(is_active == true, "Tender is currently closed for bidding");
+    
+    const score: Uint<64> = vendor_qualification_score();
+    const price: Uint<64> = bid_price();
+    
+    assert(price > 0, "Bid price must be greater than zero");
+    assert(score >= minimum_qualification_score, "Vendor does not meet minimum qualification threshold");
+    
+    bids_count.increment(1);
+}
