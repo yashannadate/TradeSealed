@@ -1,0 +1,17 @@
+{
+  "name": "tradesealed-level1",
+  "version": "1.0.0",
+  "description": "Level 1 submission for TradeSealed confidential procurement portal on Midnight Network",
+  "type": "module",
+  "scripts": {
+    "compile": "wsl bash -c 'export PATH=\"$HOME/.compact/versions/0.30.0/x86_64-unknown-linux-musl:$PATH\" && compactc.bin contract/src/sealed_bidding.compact contract/managed'",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "0.15.0"
+  }
+}
