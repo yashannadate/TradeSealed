@@ -3,15 +3,42 @@
   "version": "1.0.0",
   "description": "Level 1 submission for TradeSealed confidential procurement portal on Midnight Network",
   "type": "module",
-  "scripts": {
-    "compile": "wsl bash compile.sh",
-    "test": "vitest run"
+  "engines": {
+    "node": ">=22.0.0"
   },
-  "devDependencies": {
-    "typescript": "^5.4.0",
-    "vitest": "^1.4.0"
+  "scripts": {
+    "compile": "bash compile.sh",
+    "test": "vitest run",
+    "deploy": "npx --node-options=\"--max-old-space-size=12288\" tsx scripts/deploy.ts --network preprod",
+    "check-node": "node --version"
   },
   "dependencies": {
-    "@midnight-ntwrk/compact-runtime": "0.15.0"
+    "@midnight-ntwrk/compact-js": "^2.5.1",
+    "@midnight-ntwrk/compact-runtime": "0.15.0",
+    "@midnight-ntwrk/midnight-js-contracts": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-node-zk-config-provider": "^4.1.1",
+    "@midnight-ntwrk/wallet-sdk-dust-wallet": "^4.1.0",
+    "@midnight-ntwrk/wallet-sdk-facade": "^4.0.1",
+    "@midnight-ntwrk/wallet-sdk-hd": "^3.0.2",
+    "@midnight-ntwrk/wallet-sdk-shielded": "^3.0.1",
+    "@midnight-ntwrk/wallet-sdk-unshielded-wallet": "^3.1.0",
+    "rxjs": "^7.8.2",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.1",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "stream-browserify": "^3.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.4.0",
+    "util": "^0.12.5",
+    "vite-plugin-node-polyfills": "^0.28.0",
+    "vitest": "^1.4.0"
   }
 }

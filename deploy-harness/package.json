@@ -1,0 +1,37 @@
+{
+  "name": "tradesealed-deploy-harness",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-js": "^2.5.1",
+    "@midnight-ntwrk/compact-runtime": "0.15.0",
+    "@midnight-ntwrk/dapp-connector-api": "^4.0.1",
+    "@midnight-ntwrk/midnight-js-contracts": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "^4.1.1",
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "^4.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "events": "^3.3.0",
+    "stream-browserify": "^3.0.0",
+    "typescript": "^5.4.0",
+    "util": "^0.12.5",
+    "vite": "^5.2.0",
+    "vite-plugin-node-polyfills": "^0.28.0",
+    "vite-plugin-top-level-await": "^1.4.1",
+    "vite-plugin-wasm": "^3.3.0"
+  }
+}

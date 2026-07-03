@@ -1,8 +1,38 @@
+# ── Dependencies ──────────────────────────────────────────────
 node_modules/
+**/node_modules/
+
+# ── Build / Generated outputs ──────────────────────────────────
 dist/
+**/dist/
 build/
+**/build/
+
+# ── Compact compiler outputs (generated, never commit) ────────
 managed/
 contract/managed/
-*.log
+**/managed/
+
+# ── Midnight deployment state (contains wallet seeds!) ────────
+.midnight-state.json
+.midnight-wallet-state/
+.tradesealed-wallet-state/
+.env.preprod
+.env.preview
+*.env
+
+# ── Experimental / Template scaffolds ─────────────────────────
+mn-deploy/
+deploy-harness/node_modules/
+deploy-harness/dist/
+
+# ── OS and editor artifacts ───────────────────────────────────
 .DS_Store
 Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# ── TypeScript build cache ────────────────────────────────────
+*.tsbuildinfo
+tsconfig.tsbuildinfo
