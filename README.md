@@ -106,13 +106,13 @@ In strict adherence to Midnight’s privacy-by-default architecture, `contract/s
 ## 📸 Screenshots & Evidence
 
 ### 1. Successful Compile Output (Circuits Listed)
-![Midnight Compact Compiler Output](screenshots/compile.png)
+*(Refer to `compile.png` uploaded separately in submission)*
 
 ### 2. Automated Test Suite Passing
-![Vitest Unit Tests Output](screenshots/test.png)
+*(Refer to `test.png` uploaded separately in submission)*
 
 ### 3. Contract Deployed on Midnight Preprod (Visible Contract Address)
-![1AM Explorer Deployment Proof](screenshots/deploy.png)
+*(Refer to `deploy.png` uploaded separately in submission)*
 
 * **Network**: Midnight Preprod
 * **Contract Address**: `mn_addr_preprod1dq36z885ev8hssxg885e3kky2t53xut6mqcn4dqm` (Explorer Derived) / `6823a11cd72d4eff83bca90fcf63fb1f737576f3cc9e782e21b745a8229961ef` (Ledger Raw)
