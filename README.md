@@ -124,6 +124,7 @@ In strict adherence to Midnight’s privacy-by-default architecture, `contract/s
 
 
 * **Network**: Midnight Preprod
+* **Deployment Method**: Contract was deployed using the official Midnight Browser DApp Connector (1AM Wallet) through the browser deployment harness.
 * **Contract Address**: `0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef` https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef (Midnight Explorer Hex) 
 * **Deployment Transaction Hash**: `205c601428afde4905a93d84700781251e29b73957304cf41ef7e1e2dfb65940`
 * **Fees Paid**: 1 speck (negligible DUST fee sponsored by 1AM ProofStation)
