@@ -1,5 +1,13 @@
-# 🛡️ TradeSealed
-`Network` `Compact` `Midnight SDK` `Lace Wallet` `Zero-Knowledge`
+<div align="center">
+  <h1>🛡️ TradeSealed</h1>
+  <br />
+  <img src="https://img.shields.io/badge/Midnight_Network-000000?style=for-the-badge" alt="Midnight Network" />
+  <img src="https://img.shields.io/badge/Compact_Language-7F3F98?style=for-the-badge" alt="Compact Language" />
+  <img src="https://img.shields.io/badge/1AM_Wallet-FF5733?style=for-the-badge" alt="1AM Wallet" />
+  <img src="https://img.shields.io/badge/Level_1-New_Moon-E2B714?style=for-the-badge" alt="Level 1 New Moon" />
+</div>
+
+<br />
 
 A confidential, production-grade B2B procurement and sealed-bid auction portal built on the Midnight Network.
 
@@ -106,16 +114,17 @@ In strict adherence to Midnight’s privacy-by-default architecture, `contract/s
 ## 📸 Screenshots & Evidence
 
 ### 1. Successful Compile Output (Circuits Listed)
-*(Refer to `compile.png` uploaded separately in submission)*
+<img width="659" height="294" alt="image" src="https://github.com/user-attachments/assets/6052d71c-d536-4cbd-aacd-b8a59bcdea17" />
 
 ### 2. Automated Test Suite Passing
-*(Refer to `test.png` uploaded separately in submission)*
+<img width="1025" height="383" alt="image" src="https://github.com/user-attachments/assets/a5466998-8725-42c9-9050-0c58e2777c8e" />
 
-### 3. Contract Deployed on Midnight Preprod (Visible Contract Address)
-*(Refer to `deploy.png` uploaded separately in submission)*
+### 3. Contract Deployed on Midnight Preprod (Visible Contract Address) 
+<img width="1699" height="742" alt="image" src="https://github.com/user-attachments/assets/5c8470dd-f7cb-4c2a-bca0-38368d1d105b" />
+
 
 * **Network**: Midnight Preprod
-* **Contract Address**: `mn_addr_preprod1dq36z885ev8hssxg885e3kky2t53xut6mqcn4dqm` (Explorer Derived) / `6823a11cd72d4eff83bca90fcf63fb1f737576f3cc9e782e21b745a8229961ef` (Ledger Raw)
+* **Contract Address**: `0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef` https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef (Midnight Explorer Hex) 
 * **Deployment Transaction Hash**: `205c601428afde4905a93d84700781251e29b73957304cf41ef7e1e2dfb65940`
 * **Fees Paid**: 1 speck (negligible DUST fee sponsored by 1AM ProofStation)
 
@@ -148,3 +157,10 @@ We utilize the official Midnight Browser DApp Connector API (`window.midnight["1
 * **Midnight Foundation & IOG** for building the ground-breaking privacy-first blockchain architecture.
 * **RiseIn** for hosting the *Stellar Journey to Mastery* and *New Moon to Full* builder programs.
 * **1AM Wallet & ProofStation** for sponsoring gas and enabling seamless browser testing.
+
+---
+<div align="center">
+  <sub><b>New Moon to Full: Monthly Moonshots on Midnight 🌙</b></sub>
+  <br />
+  <sub>Developed by <b>Yash Annadate</b></sub>
+</div>
