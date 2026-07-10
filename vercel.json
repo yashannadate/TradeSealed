@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd deploy-harness && npm install && npm run build",
+  "outputDirectory": "deploy-harness/dist",
+  "installCommand": "npm install && cd deploy-harness && npm install",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
