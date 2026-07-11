@@ -211,28 +211,24 @@ docker start proof-server
 
 ## 📁 Project Structure
 
-```
+```text
 TradeSealed/
 ├── contract/
-│   ├── src/
-│   │   └── sealed_bidding.compact      ← ZK smart contract
-│   ├── managed/                        ← Auto-generated ZKIR + TS wrappers
-│   └── test/
-│       └── sealed_bidding.test.ts      ← Automated test suite
-├── deploy-harness/                     ← Frontend application (Vite + React)
+│   └── src/
+│       └── sealed_bidding.compact   ← ZK smart contract
+├── deploy-harness/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── WalletConnect.tsx        ← Wallet connect/disconnect UI
-│   │   │   └── CircuitCall.tsx          ← Circuit call + result display
+│   │   │   ├── WalletConnect.tsx    ← wallet connect/disconnect UI
+│   │   │   └── CircuitCall.tsx      ← circuit call button + result display
 │   │   ├── hooks/
-│   │   │   └── useMidnight.ts           ← Midnight.js SDK hook
-│   │   ├── App.tsx                      ← Main application
-│   │   ├── main.tsx                     ← Entry point
-│   │   └── index.css                    ← Design system
+│   │   │   └── useMidnight.ts       ← Midnight.js SDK hook
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
 │   ├── package.json
 │   └── vite.config.ts
-├── scripts/                            ← Deployment scripts
-├── vercel.json                         ← Vercel deployment config
+├── vercel.json
 ├── package.json
 └── README.md
 ```
