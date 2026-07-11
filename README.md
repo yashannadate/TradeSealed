@@ -297,6 +297,12 @@ We utilize the official Midnight Browser DApp Connector API (`window.midnight["1
 
 ---
 
+## 📄 Product Proposal
+
+See the detailed product design, data model, and feasibility evaluation in [PROPOSAL.md](file:///d:/TradeSealed/PROPOSAL.md).
+
+---
+
 ## 🙏 Acknowledgments
 
 * **Midnight Foundation & IOG** for building the ground-breaking privacy-first blockchain architecture.
