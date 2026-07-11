@@ -93,7 +93,7 @@ This is verified by our automated test suite, which confirms that private witnes
 
 ## ✨ Features
 
-* 🔐 **Confidential Bid Submission** — Vendors submit price quotes inside local ZK private witnesses without revealing amounts on-chain.
+* 🔐 **Confidential Bidding** — Vendors submit price quotes inside local ZK private witnesses without revealing amounts on-chain.
 * 🛡️ **Automated Qualification Gating** — The ZK circuit mathematically proves vendor eligibility before accepting bids.
 * ⚡ **Selective Disclosure** — Public state counters update dynamically while keeping commercial bids hidden.
 * 🔗 **Multi-Wallet Support** — Connect with Lace Wallet or 1AM Wallet extensions.
@@ -233,6 +233,45 @@ TradeSealed/
 ├── package.json
 └── README.md
 ```
+
+### 1. Successful Compile Output (Circuits Listed)
+<img width="659" height="294" alt="image" src="https://github.com/user-attachments/assets/6052d71c-d536-4cbd-aacd-b8a59bcdea17" />
+
+### 2. Automated Test Suite Passing
+<img width="1025" height="383" alt="image" src="https://github.com/user-attachments/assets/a5466998-8725-42c9-9050-0c58e2777c8e" />
+
+### 3. Contract Deployed on Midnight Preprod (Visible Contract Address) 
+<img width="1699" height="742" alt="image" src="https://github.com/user-attachments/assets/5c8470dd-f7cb-4c2a-bca0-38368d1d105b" />
+
+
+* **Network**: Midnight Preprod
+* **Deployment Method**: Contract was deployed using the official Midnight Browser DApp Connector (1AM Wallet) through the browser deployment harness.
+* **Contract Address**: `0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef` https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef (Midnight Explorer Hex) 
+* **Deployment Transaction Hash**: `205c601428afde4905a93d84700781251e29b73957304cf41ef7e1e2dfb65940`
+* **Fees Paid**: 1 speck (negligible DUST fee sponsored by 1AM ProofStation)
+
+---
+
+## 🖥️ Browser Deployment Harness
+
+We utilize the official Midnight Browser DApp Connector API (`window.midnight["1am"]`) for fee balancing and transaction broadcasting to avoid syncing the entire blockchain in Node.js.
+
+### Running the Harness
+1. **Start the Proof Server**:
+   Ensure Docker is running and launch the proof server container:
+   ```bash
+   docker start proof-server
+   ```
+2. **Launch Vite Development Server**:
+   Navigate to the harness directory and start the local dev server:
+   ```bash
+   cd deploy-harness
+   npm run dev
+   ```
+3. **Deploy**:
+   * Open `http://localhost:5173` in your browser.
+   * Click **Connect 1AM Wallet Extension** (ensure it's set to the Preprod network).
+   * Click **Deploy Contract to Midnight Preprod** and confirm the popup in your 1AM wallet.
 
 ---
 
