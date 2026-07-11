@@ -45,7 +45,7 @@
 - **Public GitHub repository with README:** ✅ **Passed** — [github.com/yashannadate/TradeSealed](https://github.com/yashannadate/TradeSealed)
 - **Live demo link (Vercel, Netlify, or similar):** ✅ **Passed** — Deployed to [tradesealed.vercel.app](https://tradesealed.vercel.app)
 - **Deployed Preprod contract address (verifiable on-chain):** ✅ **Passed** — [`0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef`](https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef)
-- **Demo video: wallet connect + a successful circuit call:** ⏳ **Pending** — Recording links will be added.
+- **Demo video: wallet connect + a successful circuit call:** ✅ **Passed** — Watch on [Google Drive](https://drive.google.com/file/d/1RKY3FXyayJEOekOWp567k2l6mqSPG4Gl/view?usp=drivesdk)
 - **README documenting the privacy claim:** ✅ **Passed** — Documented in [Privacy Claim](#-privacy-claim) section below.
 - **Minimum 8 meaningful commits:** ✅ **Passed** — Checked.
 
@@ -179,7 +179,7 @@ docker start proof-server
 
 ## 🎬 Demo Video
 
-[PLACEHOLDER — I will add the link after recording]
+[Watch the TradeSealed Level 2 Demo Video on Google Drive](https://drive.google.com/file/d/1RKY3FXyayJEOekOWp567k2l6mqSPG4Gl/view?usp=drivesdk)
 
 ### What to Record (Under 2 Minutes):
 1. **Connect Lace wallet** — show the address appear on screen
