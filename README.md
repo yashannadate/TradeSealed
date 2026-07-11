@@ -6,6 +6,13 @@
   <img src="https://img.shields.io/badge/Lace_Wallet-7B68EE?style=for-the-badge" alt="Lace Wallet" />
   <img src="https://img.shields.io/badge/1AM_Wallet-FF5733?style=for-the-badge" alt="1AM Wallet" />
   <img src="https://img.shields.io/badge/Level_2-First_Quarter-E2B714?style=for-the-badge" alt="Level 2 First Quarter" />
+  
+  <br /><br />
+  <h3>
+    🌐 <a href="https://tradesealed.vercel.app">Live Demo Website</a>
+    &nbsp;&nbsp;•&nbsp;&nbsp;
+    🎬 <a href="https://drive.google.com/file/d/1RKY3FXyayJEOekOWp567k2l6mqSPG4Gl/view?usp=drivesdk">Demo Video Walkthrough</a>
+  </h3>
 </div>
 
 <br />
