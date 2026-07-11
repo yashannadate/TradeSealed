@@ -13,6 +13,11 @@
     &nbsp;&nbsp;•&nbsp;&nbsp;
     🎬 <a href="https://drive.google.com/file/d/1RKY3FXyayJEOekOWp567k2l6mqSPG4Gl/view?usp=drivesdk">Demo Video Walkthrough</a>
   </h3>
+  
+  <br />
+  <a href="https://github.com/yashannadate/TradeSealed/actions/workflows/ci.yml">
+    <img src="https://github.com/yashannadate/TradeSealed/actions/workflows/ci.yml/badge.svg" alt="CI/CD Pipeline Status" />
+  </a>
 </div>
 
 <br />
