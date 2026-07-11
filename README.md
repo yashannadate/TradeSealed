@@ -18,7 +18,7 @@
 
 ## 🌐 Live Demo
 
-[PASTE LIVE URL AFTER DEPLOYING FRONTEND]
+[tradesealed.vercel.app](https://tradesealed.vercel.app)
 
 ---
 
@@ -34,17 +34,20 @@
 
 ## 🌒 Level 2 Requirements & Submission Checklist
 
-| Level 2 Requirement / Checklist Item | Status | Verification Details |
-| :--- | :---: | :--- |
-| **Lace Wallet Connect / Disconnect** | ✅ **Passed** | Both Lace (`window.midnight.mnLace`) and 1AM (`window.midnight['1am']`) wallets supported with connect/disconnect. |
-| **Circuit Called from Frontend** | ✅ **Passed** | `submit_bid()` circuit called via `@midnight-ntwrk/midnight-js-contracts` `findDeployedContract` + `callTx`. |
-| **Observable Privacy Behavior** | ✅ **Passed** | Vendor bid price and qualification score are proven valid without being shown — see Privacy Claim below. |
-| **Contract Deployed to Preprod** | ✅ **Passed** | Deployed at `0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef`. |
-| **Minimum 8 Meaningful Commits** | ✅ **Passed** | Clean conventional commit history. |
-| **Public GitHub Repo with README** | ✅ **Passed** | This document. |
-| **Live Demo Link** | ✅ **Passed** | Deployed via Vercel (see above). |
-| **Demo Video** | ✅ **Passed** | See Demo Video section below. |
-| **README Documenting Privacy Claim** | ✅ **Passed** | See Privacy Claim section below. |
+### 📋 Requirements to Pass
+- **Lace wallet connect / disconnect implemented:** ✅ **Passed** — Connected successfully in the browser using the Browser DApp Connector API for both Lace and 1AM wallet extensions.
+- **Circuit called successfully from the frontend:** ✅ **Passed** — The `submit_bid()` circuit runs in local ZK prover client-side memory and broadcasts via contract wrapper.
+- **An observable privacy behavior (something proven without being shown):** ✅ **Passed** — Bid parameters (`bid_price` and `vendor_qualification_score`) are evaluated locally inside ZK memory. The mathematical proof verifies they meet criteria without exposing exact values on-chain.
+- **Contract deployed to Preprod with a verifiable address:** ✅ **Passed** — Deployed at [`0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef`](https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef).
+- **Minimum 8 meaningful commits:** ✅ **Passed** — Comprehensive conventional git history with over 15 commits.
+
+### 📤 Submission Checklist
+- **Public GitHub repository with README:** ✅ **Passed** — [github.com/yashannadate/TradeSealed](https://github.com/yashannadate/TradeSealed)
+- **Live demo link (Vercel, Netlify, or similar):** ✅ **Passed** — Deployed to [tradesealed.vercel.app](https://tradesealed.vercel.app)
+- **Deployed Preprod contract address (verifiable on-chain):** ✅ **Passed** — [`0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef`](https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef)
+- **Demo video: wallet connect + a successful circuit call:** ⏳ **Pending** — Recording links will be added.
+- **README documenting the privacy claim:** ✅ **Passed** — Documented in [Privacy Claim](#-privacy-claim) section below.
+- **Minimum 8 meaningful commits:** ✅ **Passed** — Checked.
 
 ---
 
@@ -234,21 +237,22 @@ TradeSealed/
 └── README.md
 ```
 
+## 📷 Verification Screenshots
+
 ### 1. Successful Compile Output (Circuits Listed)
 <img width="659" height="294" alt="image" src="https://github.com/user-attachments/assets/6052d71c-d536-4cbd-aacd-b8a59bcdea17" />
 
 ### 2. Automated Test Suite Passing
 <img width="1025" height="383" alt="image" src="https://github.com/user-attachments/assets/a5466998-8725-42c9-9050-0c58e2777c8e" />
 
-### 3. Contract Deployed on Midnight Preprod (Visible Contract Address) 
+### 3. Contract Deployed on Midnight Preprod (Explorer Address Verification)
 <img width="1699" height="742" alt="image" src="https://github.com/user-attachments/assets/5c8470dd-f7cb-4c2a-bca0-38368d1d105b" />
-
 
 * **Network**: Midnight Preprod
 * **Deployment Method**: Contract was deployed using the official Midnight Browser DApp Connector (1AM Wallet) through the browser deployment harness.
-* **Contract Address**: `0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef` https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef (Midnight Explorer Hex) 
+* **Contract Address**: [`0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef`](https://preprod.midnightexplorer.com/contracts/0x6823a11cd72d4eff83f5b440f4e08f4e94c16d69c679ef63c28a45a8229961ef)
 * **Deployment Transaction Hash**: `205c601428afde4905a93d84700781251e29b73957304cf41ef7e1e2dfb65940`
-* **Fees Paid**: 1 speck (negligible DUST fee sponsored by 1AM ProofStation)
+* **Fees Paid**: 1 speck (sponsored by 1AM ProofStation)
 
 ---
 
