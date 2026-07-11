@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "../../../",
+  "sources": ["contract/src/sealed_bidding.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAYA;;;;;;;;;;;;;;;;MAMA,AAAA,UAUC;;;;;;;;;;;;;;;;;;;;;;OAAA;;;;GAZA;EAJD;;;;;UAAY,WAAoB;UAAE,WAAmB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IARrD;;;;;;;;;yEAA0C;IAC1C;;;;;;;;;yEAAoD;IACpD;;;;;;;;;yEAAkC;IAClC;;;;;;;;;yEAAiC;IAM7B;;;;;;;2HAA4B,WAAS;;yEAArB;IAChB;;;;;;;2HAAuC,WAAS;;yEAArB;IAC3B;;;;;;;;;yEAAS;;;;;;;GACZ;EAPD,AAAA,6BAA+C;;0DAA/C,0BAA+C;;;;;;;;;;;;;;GAAA;EAC/C,AAAA,YAA8B;;0DAA9B,SAA8B;;;;;;;;;;;;;;GAAA;EAQ9B,AAAA,aAUC;oDATU;;;;;;;;;;;yHAAS;;;;UAEV,OAA8C;UAC9C,OAA6B;4BAE5B,OAAK;4BACL,OAAK;;oDAAI;;;;;;;;;;;yHAA2B;;UAE3C,KAAU;IAAV;;;;;;;;;;6FAAA,KAAU;;;;wEAAA;;GACb;;;;;;;;;;;;;;;;IAxBD;qCAAA;;;;;;;;;;;0GAA0C;KAAA;IAC1C;qCAAA;;;;;;;;;;;0GAAoD;KAAA;IACpD;qCAAA;;;;;;;;;;;0GAAkC;KAAA;IAClC;qCAAA;;;;;;;;;;;0GAAiC;KAAA;;;;;;;;;;;;;"
+}

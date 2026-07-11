@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🛡️ TradeSealed</h1>
+  <h1 align="center"><img width="985" alt="TradeSealed Banner" src="./deploy-harness/public/tradesealed.png" /></h1>
   <br />
   <img src="https://img.shields.io/badge/Midnight_Network-000000?style=for-the-badge" alt="Midnight Network" />
   <img src="https://img.shields.io/badge/Compact_Language-7F3F98?style=for-the-badge" alt="Compact Language" />
@@ -240,7 +240,17 @@ TradeSealed/
 └── README.md
 ```
 
-## 📷 Verification Screenshots
+## 📸 Application Interface
+
+| Landing Page | Main Dashboard |
+| :---: | :---: |
+| <img src="./deploy-harness/public/landing.png" width="400" /> | <img src="./deploy-harness/public/dashboard.png" width="400" /> |
+| **Create Tender** | **Active Tenders** |
+| <img src="./deploy-harness/public/create_tender.png" width="400" /> | <img src="./deploy-harness/public/active_tenders.png" width="400" /> |
+
+---
+
+## 📷 Level 1 Verification Screenshots (Retained)
 
 ### 1. Successful Compile Output (Circuits Listed)
 <img width="659" height="294" alt="image" src="https://github.com/user-attachments/assets/6052d71c-d536-4cbd-aacd-b8a59bcdea17" />

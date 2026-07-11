@@ -8,10 +8,7 @@ dist/
 build/
 **/build/
 
-# ── Compact compiler outputs (generated, never commit) ────────
-managed/
-contract/managed/
-**/managed/
+
 
 # ── Midnight deployment state (contains wallet seeds!) ────────
 .midnight-state.json
