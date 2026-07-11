@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+@import url('https://db.onlinewebfonts.com/c/29ddb4605533a38e086b48fa105e0d12?family=Nohemi');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --primary-surface: #000000;
@@ -24,11 +29,15 @@ body {
   margin: 0;
   background-color: var(--primary-surface);
   color: var(--text-primary);
-  font-family: 'Geist', sans-serif;
+  font-family: 'Nohemi', 'Geist', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* ══════════════════════════════════════
@@ -45,11 +54,28 @@ body {
 }
 
 .h1-headline {
+  font-family: 'Nohemi', sans-serif;
   font-size: 64px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--text-primary);
+}
+
+.h1-headline .hero-secondary {
+  font-family: 'Nohemi', 'Geist', sans-serif;
+  font-weight: 100;
+  display: inline-block;
+  color: var(--brand-accent);
+  transition: opacity 400ms ease-in-out;
+}
+
+.h1-headline .hero-secondary.fade-in {
+  opacity: 0.85;
+}
+
+.h1-headline .hero-secondary.fade-out {
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
@@ -139,7 +165,7 @@ body {
   border: 1px solid var(--muted-border);
   background-color: var(--secondary-surface);
   color: var(--text-primary);
-  font-family: 'Geist', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px;
   outline: none;
   transition: border-color 200ms ease;
@@ -156,6 +182,7 @@ body {
   letter-spacing: 0.05em;
   color: var(--text-secondary);
   margin-bottom: 8px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* ══════════════════════════════════════
@@ -284,29 +311,80 @@ body {
   z-index: 1000;
 }
 
+.logo-text {
+  font-family: 'Nohemi', 'Geist', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
 .landing-nav {
   display: flex;
   gap: 28px;
   font-size: 14px;
   font-weight: 500;
+  height: 64px;
+  align-items: center;
 }
 
-.landing-nav a {
+.landing-nav a,
+.dashboard-nav-item {
   color: var(--text-secondary);
   text-decoration: none;
+  position: relative;
+  padding: 0;
   transition: color 200ms ease;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.landing-nav a:hover { color: var(--text-primary); }
+.landing-nav a:hover,
+.landing-nav a.active,
+.dashboard-nav-item:hover,
+.dashboard-nav-item.active {
+  color: var(--text-primary);
+}
+
+.landing-nav a::after,
+.dashboard-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-accent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.landing-nav a:hover::after,
+.landing-nav a.active::after,
+.dashboard-nav-item:hover::after,
+.dashboard-nav-item.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
 .landing-hero {
-  padding: 100px 40px 80px;
-  max-width: 1200px;
+  padding: 120px 40px 100px;
+  max-width: 800px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .landing-trust {
@@ -343,6 +421,7 @@ body {
 
 .app-sidebar {
   width: 256px;
+  flex-shrink: 0;
   border-right: 1px solid var(--muted-border);
   background-color: var(--secondary-surface);
   padding: 24px 16px;
@@ -392,14 +471,21 @@ body {
   color: #ffffff !important;
 }
 
-.app-topbar {
-  height: 64px;
-  border-bottom: 1px solid var(--muted-border);
+.dashboard-content-area {
+  flex: 1;
+  min-width: 0;
+  width: calc(100% - 256px);
+  padding: 32px 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--primary-surface);
+}
+
+.page-container {
+  width: 100%;
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  background-color: var(--primary-surface);
+  flex-direction: column;
 }
 
 /* ══════════════════════════════════════
@@ -412,21 +498,36 @@ body {
   font-size: 13px;
 }
 
-.wallet-connected-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(0, 0, 255, 0.06);
-  border: 1px solid var(--brand-accent);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 13px;
+/* ══════════════════════════════════════
+   Sleek Navbar Connected Dropdown
+   ══════════════════════════════════════ */
+
+.wallet-dropdown-container {
+  position: relative;
+  display: inline-block;
+  font-family: 'Nohemi', 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.wallet-connected-header {
+.wallet-dropdown-trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  background: rgba(0, 0, 255, 0.08);
+  border: 1px solid rgba(0, 0, 255, 0.4);
+  padding: 6px 14px;
+  border-radius: 24px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 200ms ease;
+  font-family: inherit;
+}
+
+.wallet-dropdown-trigger:hover {
+  background: rgba(0, 0, 255, 0.15);
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.25);
 }
 
 .wallet-status-dot {
@@ -434,55 +535,189 @@ body {
   height: 8px;
   border-radius: 50%;
   background: var(--success);
+  box-shadow: 0 0 8px var(--success);
   animation: pulse-dot 2s infinite;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.wallet-trigger-icon {
+  display: flex;
+  align-items: center;
 }
 
 .wallet-connected-label {
   font-weight: 600;
-  color: var(--text-primary);
-  font-size: 12px;
+  color: #ffffff;
+  font-size: 13px;
 }
 
-.wallet-address-display {
+.wallet-chevron {
+  color: var(--text-secondary);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wallet-chevron.open {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* Dropdown Floating Menu */
+.wallet-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 330px;
+  background: #101014;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 0, 255, 0.1);
+  z-index: 10000;
+  backdrop-filter: blur(12px);
+  animation: dropdownFadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.wallet-dropdown-header {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
 }
 
-.wallet-address-icon { color: var(--brand-accent); }
-
-.wallet-address-text {
-  font-size: 11px;
-  color: var(--text-secondary);
-}
-
-.btn-disconnect {
-  display: inline-flex;
+.wallet-dropdown-badge {
+  display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--muted-border);
-  background: transparent;
-  color: var(--text-secondary);
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.wallet-dropdown-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wallet-dropdown-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.wallet-dropdown-net {
   font-size: 11px;
+  color: var(--success);
   font-weight: 500;
+}
+
+.wallet-dropdown-section {
+  margin-bottom: 14px;
+}
+
+.wallet-dropdown-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.wallet-address-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.wallet-dropdown-address-text {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: #e2e8f0;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.wallet-copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 150ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wallet-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.wallet-funds-box {
+  background: rgba(0, 204, 102, 0.08);
+  border: 1px solid rgba(0, 204, 102, 0.25);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.wallet-funds-status {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.wallet-dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 12px 0;
+}
+
+.wallet-dropdown-disconnect {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  background: rgba(255, 59, 48, 0.08);
+  color: #ff4d4f;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 200ms ease;
+  font-family: inherit;
 }
 
-.btn-disconnect:hover {
-  border-color: var(--destructive);
-  color: var(--destructive);
-  background: rgba(255, 0, 0, 0.06);
+.wallet-dropdown-disconnect:hover {
+  background: rgba(255, 59, 48, 0.18);
+  border-color: #ff4d4f;
+  box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
 }
 
 /* Wallet Selector Modal */
@@ -581,28 +816,22 @@ body {
   cursor: wait;
 }
 
-.wallet-option-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+.wallet-option-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.wallet-option-lace {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  border: 1px solid #2a3a5c;
-  color: #7b68ee;
-}
-
-.wallet-option-1am {
-  background: linear-gradient(135deg, #1a0a2e, #2d1b4e);
-  border: 1px solid #4a2d7a;
-  color: #ff5733;
+.wallet-option-card.active-connecting {
+  border-color: var(--brand-accent);
+  background: rgba(0, 0, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
 }
 
 .wallet-option-info {
@@ -835,3 +1064,266 @@ body {
 
 .circuit-log-line.log-error { color: var(--destructive); }
 .circuit-log-line.log-success { color: var(--brand-accent); }
+
+/* Trust Badges Styles */
+.landing-trust {
+  padding: 80px 0;
+  border-top: 1px solid var(--muted-border);
+  border-bottom: 1px solid var(--muted-border);
+  background: var(--primary-surface);
+  width: 100%;
+}
+
+.landing-trust-title {
+  font-family: 'Nohemi', 'Geist', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ══════════════════════════════════════
+   Responsive Navigation Utilities
+   ══════════════════════════════════════ */
+
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 64px;
+  overflow: hidden;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.navbar-logo-img {
+  height: 140px;
+  margin: -54px -20px;
+  object-fit: contain;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--muted-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.mobile-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--brand-accent);
+}
+
+.mobile-nav-drawer {
+  display: none;
+  flex-direction: column;
+  background: var(--secondary-surface);
+  border-bottom: 1px solid var(--muted-border);
+  padding: 16px 24px;
+  gap: 12px;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.mobile-nav-drawer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.mobile-nav-drawer a:hover {
+  color: #ffffff;
+}
+
+.app-main-container {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 64px);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.mobile-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1040;
+}
+
+/* ══════════════════════════════════════
+   Laptop & Desktop Breakpoint (1024px - 1440px)
+   ══════════════════════════════════════ */
+@media (max-width: 1440px) {
+  .landing-navbar {
+    padding: 0 28px;
+  }
+}
+
+/* ══════════════════════════════════════
+   Tablet Breakpoint (768px - 1023px)
+   ══════════════════════════════════════ */
+@media (max-width: 1023px) {
+  .landing-navbar {
+    padding: 0 20px;
+  }
+
+  .landing-nav {
+    gap: 18px;
+  }
+
+  /* Grid adaptations for Tablet */
+  .landing-trust div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .app-sidebar {
+    width: 210px;
+    padding: 20px 12px;
+  }
+
+  .sidebar-link {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ══════════════════════════════════════
+   Mobile Breakpoint (max-width: 767px)
+   ══════════════════════════════════════ */
+@media (max-width: 767px) {
+  .landing-navbar {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .navbar-logo-container {
+    width: 180px;
+    height: 60px;
+  }
+
+  .navbar-logo-img {
+    height: 120px;
+    margin: -48px -16px;
+  }
+
+  /* Hide horizontal nav on mobile, show hamburger toggle */
+  .landing-nav {
+    display: none !important;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+  }
+
+  .mobile-nav-drawer {
+    display: flex;
+  }
+
+  /* Responsive Hero */
+  .landing-hero {
+    padding: 60px 20px 60px;
+  }
+
+  .h1-headline {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+  }
+
+  .body-large {
+    font-size: 16px !important;
+  }
+
+  /* Responsive Grids -> 1 Column on Mobile */
+  .landing-trust div[style*="grid-template-columns: repeat(4, 1fr)"],
+  div[style*="grid-template-columns: repeat(3, 1fr)"],
+  div[style*="grid-template-columns: repeat(4, 1fr)"],
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns: 2fr 1fr"],
+  div[style*="grid-template-columns: 1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Responsive Sidebar Drawer */
+  .app-sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .mobile-sidebar-backdrop {
+    display: block;
+    top: 60px;
+  }
+
+  /* Main panel adjustments */
+  .app-main-container > div {
+    padding: 20px 16px !important;
+    width: 100% !important;
+  }
+
+  /* Responsive Modals */
+  .wallet-selector-modal,
+  .circuit-modal {
+    width: 95vw !important;
+    padding: 20px !important;
+  }
+
+  .wallet-dropdown-menu {
+    width: calc(100vw - 32px) !important;
+    right: -10px !important;
+  }
+
+  /* Tables overflow scroll */
+  div[style*="overflow-x: auto"] {
+    width: 100%;
+    overflow-x: auto !important;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}

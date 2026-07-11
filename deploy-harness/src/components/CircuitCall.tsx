@@ -4,10 +4,11 @@ import type { CircuitResult, WalletState } from '../hooks/useMidnight';
 
 interface CircuitCallProps {
   wallet: WalletState;
-  onCallCircuit: (price: bigint, score: bigint) => Promise<CircuitResult>;
+  onCallCircuit: (price: bigint, score: bigint, targetContractAddress?: string) => Promise<CircuitResult>;
   circuitLoading: boolean;
   circuitResult: CircuitResult | null;
   logs: string[];
+  contractAddress?: string;
 }
 
 export default function CircuitCall({
@@ -16,15 +17,20 @@ export default function CircuitCall({
   circuitLoading,
   circuitResult,
   logs,
+  contractAddress,
 }: CircuitCallProps) {
-  // Price and score are ONLY used locally for witness generation.
-  // They are NEVER displayed in the result UI.
-  const [internalPrice] = useState(50000n);
-  const [internalScore] = useState(85n);
+  const [price, setPrice] = useState('50000');
+  const [score, setScore] = useState('85');
 
   const handleSubmit = async () => {
     if (!wallet.connected) return;
-    await onCallCircuit(internalPrice, internalScore);
+    try {
+      const priceVal = BigInt(price);
+      const scoreVal = BigInt(score);
+      await onCallCircuit(priceVal, scoreVal, contractAddress);
+    } catch (e) {
+      alert("Invalid price or score value");
+    }
   };
 
   return (
@@ -36,7 +42,7 @@ export default function CircuitCall({
           <div>
             <h3 className="h3-header">Zero-Knowledge Circuit Execution</h3>
             <p className="body-small">
-              Call the <code className="tech-mono">submit_bid()</code> circuit on your Preprod contract.
+              Call the <code className="tech-mono">submit_bid()</code> circuit on contract <code className="tech-mono" style={{ color: 'var(--brand-accent)' }}>{(contractAddress || 'Preprod Contract').slice(0, 24)}...</code>
             </p>
           </div>
         </div>
@@ -80,6 +86,30 @@ export default function CircuitCall({
             <li><Lock size={10} /> Your vendor identity</li>
             <li><Lock size={10} /> Your witness inputs</li>
           </ul>
+        </div>
+      </div>
+
+      {/* Input Parameters */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Private Bid Price (DUST)</label>
+          <input
+            type="number"
+            className="w-full bg-slate-950/80 border border-slate-800 focus:border-blue-500 rounded-lg p-3 text-sm text-white focus:outline-none font-mono"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            placeholder="e.g. 50000"
+          />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Private Qualification Score</label>
+          <input
+            type="number"
+            className="w-full bg-slate-950/80 border border-slate-800 focus:border-blue-500 rounded-lg p-3 text-sm text-white focus:outline-none font-mono"
+            value={score}
+            onChange={(e) => setScore(e.target.value)}
+            placeholder="e.g. 85"
+          />
         </div>
       </div>
 
@@ -148,32 +178,6 @@ export default function CircuitCall({
         </div>
       )}
 
-      {/* ZK Prover Feed */}
-      <div className="circuit-prover-feed">
-        <div className="circuit-prover-header">
-          <Activity size={14} />
-          <span className="eyebrow-text">ZK PROVER FEED</span>
-          {circuitLoading && <span className="circuit-prover-live">● LIVE</span>}
-        </div>
-        <div className="circuit-prover-log">
-          {logs.length === 0 ? (
-            <span className="circuit-prover-idle">
-              Prover idle. Submit a bid to stream ZK proving outputs here...
-            </span>
-          ) : (
-            logs.map((log, idx) => (
-              <div
-                key={idx}
-                className={`circuit-log-line ${
-                  log.includes('❌') ? 'log-error' : log.includes('✅') || log.includes('🎉') ? 'log-success' : ''
-                }`}
-              >
-                {log}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
     </div>
   );
 }

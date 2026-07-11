@@ -9,6 +9,7 @@
   "scripts": {
     "compile": "bash compile.sh",
     "test": "vitest run",
+    "dev": "npm --prefix deploy-harness run dev",
     "deploy": "npx --node-options=\"--max-old-space-size=12288\" tsx scripts/deploy.ts --network preprod",
     "check-node": "node --version"
   },
