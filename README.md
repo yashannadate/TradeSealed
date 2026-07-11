@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Compact_Language-7F3F98?style=for-the-badge" alt="Compact Language" />
   <img src="https://img.shields.io/badge/Lace_Wallet-7B68EE?style=for-the-badge" alt="Lace Wallet" />
   <img src="https://img.shields.io/badge/1AM_Wallet-FF5733?style=for-the-badge" alt="1AM Wallet" />
-  <img src="https://img.shields.io/badge/Level_2-First_Quarter-E2B714?style=for-the-badge" alt="Level 2 First Quarter" />
+
   
   <br /><br />
   <h3>
